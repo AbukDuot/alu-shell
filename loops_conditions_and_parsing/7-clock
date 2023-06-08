@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# display time for 12 hours and 59 minutes
+
+hour=0
+
+while [ "$hour" -le 12 ]; do
+  echo "Hour: $hour"
+  
+  minute=0
+  
+  while [ "$minute" -lt 60 ]; do
+    if [ "$hour" -eq 12 ] && [ "$minute" -eq 0 ]; then
+      break 2  # Exit both loops when reaching 12:00
+    fi
+    
+    printf "%02d\n" "$minute"  # Print minutes with leading zero if necessary
+    minute=$((minute + 1))
+  done
+
+  hour=$((hour + 1))
+done
